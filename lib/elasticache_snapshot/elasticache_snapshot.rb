@@ -30,7 +30,7 @@ module Elasticachesnapshot
     
     def describe_snapshots(name=nil)
       elc.describe_snapshots[:snapshots].each do |snapshot|
-        p snapshot[:snapshot_name]
+        puts snapshot[:snapshot_name]
       end
     end
     
@@ -45,7 +45,7 @@ module Elasticachesnapshot
       unless sorted[0][:cache_cluster_status].include?("snapshotting")
         replica_node = sorted[0][:cluster_id]
       else
-        return "err, Snapshotting..."
+        return "Error, Snapshotting..."
       end
     
       elc.describe_replication_groups.replication_groups[0].node_groups[0].node_group_members.each do |node|
@@ -56,16 +56,18 @@ module Elasticachesnapshot
     end
     
     def create_snapshot(snapshot_name)
-      unless elaction_snapshot_node.include?("err")
+      unless elaction_snapshot_node.include?("Error")
         snapshot_name = "snapshot-" + Time.now.to_i.to_s
         elc.create_snapshot({ :cache_cluster_id => elaction_snapshot_node, :snapshot_name => snapshot_name })
-        p "Created #{snapshot_name}"
+        puts "Create #{snapshot_name} from #{elaction_snapshot_node}..."
+      else
+        puts elaction_snapshot_node 
       end
     end
     
     def delete_snapshot(snapshot_name)
       elc.delete_snapshot({ :snapshot_name => snapshot_name })
-      p "Deleted #{snapshot_name}"
+      puts "Deleted #{snapshot_name}"
     end
   
   end
