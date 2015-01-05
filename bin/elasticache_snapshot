@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+require 'elasticache_snapshot'
+Elasticachesnapshot::CLI.start(ARGV)
