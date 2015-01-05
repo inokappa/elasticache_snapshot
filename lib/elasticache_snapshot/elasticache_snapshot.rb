@@ -3,6 +3,7 @@
 require 'aws-sdk'
 require 'json'
 require 'thor'
+require 'terminal-table'
 
 module Elasticachesnapshot
   class CLI < Thor
@@ -29,9 +30,16 @@ module Elasticachesnapshot
     end
     
     def describe_snapshots(name=nil)
+      snapshots = []
       elc.describe_snapshots[:snapshots].each do |snapshot|
-        puts snapshot[:snapshot_name]
+        snapshot_create_time = ""
+        snapshot[:node_snapshots].each do |node_snapshot|
+          snapshot_create_time = node_snapshot[:snapshot_create_time]
+        end
+        snapshots << [ snapshot[:snapshot_name], "#{snapshot_create_time}" ]
       end
+      snapshot_table = Terminal::Table.new :headings => ['SNAPSHOT Name', 'SNAPSHOT Create time'], :rows => snapshots
+      puts snapshot_table
     end
     
     def elaction_snapshot_node
