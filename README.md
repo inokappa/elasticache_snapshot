@@ -1,6 +1,6 @@
-# ElasticacheSnapshot
+# おれん ElastiCache Snapshot
 
-TODO: Write a gem description
+おれん ElastiCache のスナップショットを管理ツールくさ。
 
 ## Installation
 
@@ -20,6 +20,19 @@ Or install it yourself as:
 
 ## Usage
 
+### Set AWS Credentials
+
+```bash
+cat << EOT > ~/.aws/credentials
+[default]
+aws_access_key_id = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+aws_secret_access_key = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+region = ap-northeast-1
+EOT
+```
+
+### Help
+
 ```bash
 bundle exec bin/elasticache_snapshot
 Commands:
@@ -27,7 +40,6 @@ Commands:
   elasticache_snapshot delete SNAPSHOT_NAME  # Dispose Snapshot SNAPSHOT_NAME
   elasticache_snapshot help [COMMAND]        # Describe available commands or one specific command
   elasticache_snapshot list                  # Describe Snapshots
-
 ```
 
 ## Contributing

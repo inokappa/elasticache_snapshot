@@ -42,7 +42,6 @@ module Elasticachesnapshot
     
       sorted = cluster.sort {|x, y| y[:create_time] <=> x[:create_time]}
     
-      #p sorted[0][:cache_cluster_status]
       unless sorted[0][:cache_cluster_status].include?("snapshotting")
         replica_node = sorted[0][:cluster_id]
         elc.describe_replication_groups.replication_groups[0].node_groups[0].node_group_members.each do |node|
@@ -53,12 +52,6 @@ module Elasticachesnapshot
       else
         return "Error, Snapshotting..."
       end
-    
-      #elc.describe_replication_groups.replication_groups[0].node_groups[0].node_group_members.each do |node|
-      #  if node.current_role == "replica" and node[:cache_cluster_id] == replica_node
-      #    return node[:cache_cluster_id]
-      #  end
-      #end
     end
     
     def create_snapshot(snapshot_name)
