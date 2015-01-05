@@ -25,7 +25,7 @@ module Elasticachesnapshot
 
     def elc
       AWS.config.credentials
-      AWS::ElastiCache.new(region: "ap-northeast-1").client
+      AWS::ElastiCache.new.client
     end
     
     def describe_snapshots(name=nil)
