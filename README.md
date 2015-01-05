@@ -35,11 +35,28 @@ export AWS_REGION=ap-northeast-1 or export AWS_REGION=(your region)
 
 ```bash
 bundle exec bin/elasticache_snapshot
+
+(output)
 Commands:
   elasticache_snapshot create SNAPSHOT_NAME  # Create Snapshot SNAPSHOT_NAME
   elasticache_snapshot delete SNAPSHOT_NAME  # Dispose Snapshot SNAPSHOT_NAME
   elasticache_snapshot help [COMMAND]        # Describe available commands or one specific command
   elasticache_snapshot list                  # Describe Snapshots
+```
+
+### list
+
+```bash
+bundle exec bin/elasticache_snapshot list
+
+(output)
++---------------------+-------------------------+
+| SNAPSHOT Name       | SNAPSHOT Create time    |
++---------------------+-------------------------+
+| snapshot-1420457086 | 2015-01-05 11:25:01 UTC |
+| snapshot-1420457295 | 2015-01-05 11:28:31 UTC |
+| snapshot-1420461070 | 2015-01-05 12:31:21 UTC |
++---------------------+-------------------------+
 ```
 
 ## Contributing
