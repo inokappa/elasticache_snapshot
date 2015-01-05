@@ -27,8 +27,8 @@ cat << EOT > ~/.aws/credentials
 [default]
 aws_access_key_id = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 aws_secret_access_key = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-region = ap-northeast-1
 EOT
+export AWS_REGION=ap-northeast-1 or export AWS_REGION=(your region)
 ```
 
 ### Help
