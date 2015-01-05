@@ -6,7 +6,7 @@ require 'thor'
 require 'terminal-table'
 
 module Elasticachesnapshot
-  class CLI < Thor
+  class ORENCLI < Thor
     desc "list", "Describe Snapshots"
     def list(name=nil)
       describe_snapshots

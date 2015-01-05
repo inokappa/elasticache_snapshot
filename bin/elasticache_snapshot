@@ -1,4 +1,4 @@
 #!/usr/bin/env ruby
 
 require 'elasticache_snapshot'
-Elasticachesnapshot::CLI.start(ARGV)
+Elasticachesnapshot::ORENCLI.start(ARGV)
