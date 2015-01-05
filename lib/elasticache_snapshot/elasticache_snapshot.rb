@@ -1,6 +1,5 @@
 #!/usr/bin/env ruby
 
-#require "elasticache_snapshot/version"
 require 'aws-sdk'
 require 'json'
 require 'thor'
@@ -71,4 +70,3 @@ module Elasticachesnapshot
   
   end
 end
-#CLI.start(ARGV)

@@ -20,7 +20,15 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```bash
+bundle exec bin/elasticache_snapshot
+Commands:
+  elasticache_snapshot create SNAPSHOT_NAME  # Create Snapshot SNAPSHOT_NAME
+  elasticache_snapshot delete SNAPSHOT_NAME  # Dispose Snapshot SNAPSHOT_NAME
+  elasticache_snapshot help [COMMAND]        # Describe available commands or one specific command
+  elasticache_snapshot list                  # Describe Snapshots
+
+```
 
 ## Contributing
 
