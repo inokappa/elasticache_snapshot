@@ -64,7 +64,6 @@ module Elasticachesnapshot
     
     def create_snapshot(snapshot_name)
       unless elaction_snapshot_node.include?("Error")
-        snapshot_name = "snapshot-" + Time.now.to_i.to_s
         puts "Create #{snapshot_name} from #{elaction_snapshot_node}..."
         elc.create_snapshot({ :cache_cluster_id => elaction_snapshot_node, :snapshot_name => snapshot_name })
       else
