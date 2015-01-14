@@ -31,6 +31,8 @@ EOT
 export AWS_REGION=ap-northeast-1 or export AWS_REGION=(your region)
 ```
 
+If you want to run on EC2 instance that has been set appropriate IAM role set of access_key and secret_access_key is not required(`AWS_REGION` required.).
+
 ### Help
 
 ```bash
